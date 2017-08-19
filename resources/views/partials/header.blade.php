@@ -18,10 +18,8 @@
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse" id="app-navbar-collapse">
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="//mtwilliams.uk">Home</a></li>
+                <li><a href="//mtwilliams.uk">About</a></li>
                 <li><a href="{{ route('blog.index') }}">Blog</a></li>
-                <li><a href="//mtwilliams.uk#about">About</a></li>
-                <li><a href="//mtwilliams.uk#services">Services</a></li>
                 <li><a href="//mtwilliams.uk/portfolio">Portfolio</a></li>
                 <li><a href="//mtwilliams.uk#contact">Contact</a></li>
                 <!-- Authentication Links -->
