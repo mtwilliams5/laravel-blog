@@ -13,7 +13,7 @@ class PostController extends Controller
 {
     public function getIndex()
     {
-        $posts = Post::orderBy('created_at','desc')->paginate(3);
+        $posts = Post::where('published',true)->orderBy('created_at','desc')->paginate(3);
         return view('blog.index', ['posts' => $posts]);
     }
 
@@ -83,10 +83,21 @@ class PostController extends Controller
         return redirect()->route('admin.index')->with('info', 'Post edited, new Title is: ' . $request->input('title'));
     }
 
-    public function getAdminDelete($id)
+    public function postAdminPublish($id)
     {
         $post = Post::find($id);
         if (Gate::denies('manipulate-post', $post)) {
+            return redirect()->back();
+        }
+        $post->published = true;
+        $post->save();
+        return redirect()->route('admin.index')->with('info', 'Post published!');
+    }
+
+    public function getAdminDelete($id)
+    {
+        $post = Post::find($id);
+        if (Gate::denies('publish-post', $post)) {
             return redirect()->back();
         }
         $post->likes()->delete();
