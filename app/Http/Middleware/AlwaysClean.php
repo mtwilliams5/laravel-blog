@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Purifier;
 
-class AlwaysRedirect
+class AlwaysClean
 {
     /**
      * Handle an incoming request.
@@ -15,8 +16,10 @@ class AlwaysRedirect
      */
     public function handle($request, Closure $next)
     {
-        if ($request->path() == 'about') {
-            return redirect('/');
+        if ($request->input('content')) {
+            $content = $request->input('content');
+            $cleanContent = Purifier::clean($content);
+            $request->merge(['content' => $cleanContent]);
         }
         return $next($request);
     }
