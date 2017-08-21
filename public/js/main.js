@@ -1,4 +1,5 @@
 // initializing editors
+// Create editors
 var titleEditor = new MediumEditor('.title-editable', {
     buttonLabels: 'fontawesome',
     placeholder: false,
@@ -26,4 +27,14 @@ var bodyEditor = new MediumEditor('.body-editable', {
         ]
       })
     }
+});
+
+// Edit editors
+var existingTitleEditor = new MediumEditor('.existing-title-editable', {
+  buttonLabels: 'fontawesome',
+  placeholder: false
+});
+var existingBodyEditor = new MediumEditor('.existing-body-editable', {
+  buttonLabels: 'fontawesome',
+  placeholder: false
 });
