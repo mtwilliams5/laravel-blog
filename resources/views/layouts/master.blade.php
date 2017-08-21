@@ -10,7 +10,7 @@
 
         <title>{{ ucwords(config('app.name')) }} :: Blog</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700,900|Exo+2:400i" rel="stylesheet">
         <script src="https://use.fontawesome.com/1e9efd43b1.js"></script>
         @if (Request::is('admin/*'))
             <link rel="stylesheet" href="{{ URL::to('css/medium-editor.css') }}">
@@ -21,11 +21,15 @@
         @endif
     </head>
     <body>
+    <div id="container">
         @include('partials.header')
         <div class="container-fluid">
-            @yield('content')
+            <main id="body">
+                @yield('content')
+            </main>
         </div>
-
+        @include('partials.footer')
+    </div>
     <!-- Scripts -->
     @if (Request::is('admin/*'))
         @include('partials.editor')
