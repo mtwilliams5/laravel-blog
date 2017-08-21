@@ -22,6 +22,11 @@
                             @endforeach
                         </div>
                     @endif
+                    @php
+                        $start = strpos($post->content, '<p>');
+                        $end = strpos($post->content, '</p>');
+                        $post->content = substr($post->content, $start, $end-$start+4);
+                    @endphp
                     <div class="post-content">{!! $post->content !!}</div>
                     <p><a href="{{ route('blog.post', ['id' => $post->id]) }}">Read more...</a></p>
                     <div class="post-info">

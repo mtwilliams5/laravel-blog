@@ -25,7 +25,7 @@ class AlwaysClean
         // Now let's strip the title of any HTML, so our fancy editor doesn't mess up our display
         if ($request->input('title')) {
             $title = $request->input('title');
-            $bareTitle = strip_tags($title);
+            $bareTitle = html_entity_decode(strip_tags($title));
             $request->merge(['title' => $bareTitle]);
         }
         return $next($request);
