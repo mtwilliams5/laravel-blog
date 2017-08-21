@@ -63,4 +63,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     ]);
 });
 
+Route::any('upload', 'PostController@upload');
+
 Auth::routes();

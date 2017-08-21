@@ -10,9 +10,16 @@
 
         <title>{{ ucwords(config('app.name')) }} :: Blog</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat:100,300,400,700,900|Saira:300" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700,900" rel="stylesheet">
         <script src="https://use.fontawesome.com/1e9efd43b1.js"></script>
-        <link rel="stylesheet" href="{{ URL::to('css/styles.css') }}">
+        @if (Request::is('admin/*'))
+            <link rel="stylesheet" href="{{ URL::to('css/medium-editor.css') }}">
+            <link rel="stylesheet" href="{{ URL::to('css/styles.css') }}">
+            <link rel="stylesheet" href="{{ URL::to('css/themes/default.css') }}">
+            <link rel="stylesheet" href="{{ URL::to('css/medium-editor-insert-plugin.min.css') }}">
+        @else
+            <link rel="stylesheet" href="{{ URL::to('css/styles.css') }}">
+        @endif
     </head>
     <body>
         @include('partials.header')
@@ -21,6 +28,10 @@
         </div>
 
     <!-- Scripts -->
+    <script src="{{ URL::to('js/vendor/jquery.min.js') }}"></script>
+    @if (Request::is('admin/*'))
+        @include('partials.editor')
+    @endif
     <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

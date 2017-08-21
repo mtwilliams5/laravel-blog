@@ -105,4 +105,23 @@ class PostController extends Controller
         $post->delete();
         return redirect()->route('admin.index')->with('info', 'Post deleted!');
     }
+     
+    public function upload()
+    {
+        $file = Input::file('file');
+        $input = array('image' => $file);
+        $rules = array(
+            'image' => 'image'
+        );
+        $validator = Validator::make($input, $rules);
+        if ( $validator->fails()) {
+            return Response::json(array('success' => false, 'errors' => $validator->getMessageBag()->toArray()));
+        }
+ 
+        $fileName = time() . '-' . $file->getClientOriginalName();
+        $destination = public_path() . '/uploads/';
+        $file->move($destination, $fileName);
+ 
+        echo url('/uploads/'. $fileName);
+    }
 }
