@@ -16,7 +16,6 @@
             <link rel="stylesheet" href="{{ URL::to('css/medium-editor.css') }}">
             <link rel="stylesheet" href="{{ URL::to('css/styles.css') }}">
             <link rel="stylesheet" href="{{ URL::to('css/themes/default.css') }}">
-            <link rel="stylesheet" href="{{ URL::to('css/medium-editor-insert-plugin.min.css') }}">
         @else
             <link rel="stylesheet" href="{{ URL::to('css/styles.css') }}">
         @endif
@@ -28,7 +27,6 @@
         </div>
 
     <!-- Scripts -->
-    <script src="{{ URL::to('js/vendor/jquery.min.js') }}"></script>
     @if (Request::is('admin/*'))
         @include('partials.editor')
     @endif

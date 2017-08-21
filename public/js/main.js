@@ -14,10 +14,16 @@ var titleEditor = new MediumEditor('.title-editable', {
     }
 });
 var bodyEditor = new MediumEditor('.body-editable', {
-    buttonLabels: 'fontawesome'
+    buttonLabels: 'fontawesome',
+    placeholder: false,
+    extensions: {
+      'multi_placeholder': new MediumEditorMultiPlaceholders({
+        placeholders: [
+            {
+              tag: 'p',
+              text: 'Tell your story...'
+            }
+        ]
+      })
+    }
 });
-    $('.body-editable').mediumInsert({
-        editor: bodyEditor,
-        images: true,
-        imagesUploadScript: "{{ URL::to('upload') }}"
-    });
