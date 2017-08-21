@@ -17,22 +17,28 @@
     <hr>
     @foreach($posts as $post)
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-6">
                 <p><strong>{{ $post->title }}</strong>
                     @if(!$post->published)
                         <small class="text-muted upper"> Draft</small>
                     @endif
                 </p>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-6">
                 <div class="btn-toolbar" role="toolbar" aria-label="Post controls">
                     <div class="btn-group btn-group-sm" role="group" aria-label="Content controls">
                         <a class="btn btn-default" role="button" href="{{ route('admin.edit', ['id' => $post->id]) }}">Edit</a>
                         <a class="btn btn-danger" role="button" href="{{ route('admin.delete', ['id' => $post->id]) }}">Delete</a>
                     </div>
-                    <div class="btn-group btn-group-sm" role="group" aria-label="Publish controls">
-                        <a class="btn btn-primary" role="button" href="{{ route('admin.publish', ['id' => $post->id]) }}">Publish</a>
-                    </div>
+                    @if(!$post->published)
+                        <div class="btn-group btn-group-sm" role="group" aria-label="Publish controls">
+                            <a class="btn btn-primary" role="button" href="{{ route('admin.publish', ['id' => $post->id]) }}">&nbsp;&nbsp; Publish &nbsp;&nbsp;</a>
+                        </div>
+                    @else
+                        <div class="btn-group btn-group-sm" role="group" aria-label="Publish controls">
+                            <a class="btn btn-default" role="button" href="{{ route('admin.unpublish', ['id' => $post->id]) }}">Unpublish</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

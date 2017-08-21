@@ -52,17 +52,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         'as' => 'admin.delete'
     ]);
     
-        Route::get('publish/{id}', [
-            'uses' => 'PostController@postAdminPublish',
-            'as' => 'admin.publish'
-        ]);
+    Route::get('publish/{id}', [
+        'uses' => 'PostController@postAdminPublish',
+        'as' => 'admin.publish'
+    ]);
+    
+    Route::get('unpublish/{id}', [
+        'uses' => 'PostController@postAdminUnpublish',
+        'as' => 'admin.unpublish'
+    ]);
 
     Route::post('edit', [
         'uses' => 'PostController@postAdminUpdate',
         'as' => 'admin.update'
     ]);
 });
-
-Route::any('upload', 'PostController@upload');
 
 Auth::routes();

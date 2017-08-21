@@ -19,7 +19,7 @@ class PostController extends Controller
 
     public function getAdminIndex()
     {
-        $posts = Post::orderBy('title', 'asc')->get();
+        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.index', ['posts' => $posts]);
     }
 
@@ -92,6 +92,17 @@ class PostController extends Controller
         $post->published = true;
         $post->save();
         return redirect()->route('admin.index')->with('info', 'Post published!');
+    }
+    
+    public function postAdminUnpublish($id)
+    {
+        $post = Post::find($id);
+        if (Gate::denies('manipulate-post', $post)) {
+            return redirect()->back();
+        }
+        $post->published = false;
+        $post->save();
+        return redirect()->route('admin.index')->with('info', 'Post unpublished!');
     }
 
     public function getAdminDelete($id)

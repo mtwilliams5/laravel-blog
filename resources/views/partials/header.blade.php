@@ -52,8 +52,8 @@
                                 New Post
                             </a></li>
                             <li><a href="{{ route('admin.index') }}">
-                                <i class="fa fa-pencil fa-fw"></i>
-                                Manage Posts
+                                <i class="fa fa-dashboard fa-fw"></i>
+                                Dashboard
                             </a></li>
                             <li>
                                 <a href="{{ route('logout') }}"
