@@ -327,28 +327,44 @@ footer p {
     text-align: center;
     color: #fff;
 }
+
+.user-social a{
+    margin:0;
+    padding:0;
+    display: block;
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    color: #333;
+}
 .social a i{
     text-align: center;
     margin:0;
     padding:0;
 }
-.social .social-facebook a{color: #3b5998;}
-.social .social-twitter a{color: #1DA1F2;}
-.social .social-dribble a{color: #ea4c89;}
-.social .social-deviantart a{color: #4dc47d;}
-.social .social-google a{color: #dd4b39;}
-.social .social-vimeo a{color: #1ab7ea;}
+.social-facebook a{color: #3b5998;}
+.social-twitter a{color: #1DA1F2;}
+.social-dribble a{color: #ea4c89;}
+.social-deviantart a{color: #4dc47d;}
+.social-google a{color: #dd4b39;}
+.social-vimeo a{color: #1ab7ea;}
 .social .social-axtras a{color: #DB2160; font-size: 2em; font-family: "Exo 2", Helvetica, sans-serif;}
-.social .social-linkedin a{color: #0077b5;}
-.social .social-medium a{color: #00ab6c;}
-.social .social-github a{color: #0c0c0c;}
-.social .social-facebook a:hover{color: #899bc1;}
-.social .social-twitter a:hover{color: #77c6f7;}
-.social .social-dribble a:hover{color: #f293b8;}
-.social .social-deviantart a:hover{color: #94dbb1;}
-.social .social-google a:hover{color: #ea9388;}
-.social .social-vimeo a:hover{color: #75d3f2;}
-.social .social-linkedin a:hover{color: #66add2;}
-.social .social-medium a:hover{color: #66cca6;}
-.social .social-axtras a:hover{color: #e9799f;}
-.social .social-github a:hover{color: #242424;}
+.user-social .social-axtras a{color: #DB2160; font-family: "Exo 2", Helvetica, sans-serif;}
+.social-linkedin a{color: #0077b5;}
+.social-medium a{color: #00ab6c;}
+.social-github a{color: #0c0c0c;}
+.social-facebook a:hover{color: #899bc1;}
+.social-twitter a:hover{color: #77c6f7;}
+.social-dribble a:hover{color: #f293b8;}
+.social-deviantart a:hover{color: #94dbb1;}
+.social-google a:hover{color: #ea9388;}
+.social-vimeo a:hover{color: #75d3f2;}
+.social-linkedin a:hover{color: #66add2;}
+.social-medium a:hover{color: #66cca6;}
+.social-axtras a:hover{color: #e9799f;}
+.social-github a:hover{color: #242424;}
+
+a .post-content {
+    color: #333;
+}

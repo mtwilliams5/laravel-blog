@@ -17,4 +17,12 @@ class UserController extends Controller
         $users = User::orderBy('id', 'asc')->paginate(10);
         return view('admin.users.index', ['users' => $users]);
     }
+
+    public function getUserProfile($id)
+    {
+        $user = User::where('id', $id)->with(['posts' => function ($query) {
+            $query->where('published',true);
+        }])->first();
+        return view('user.profile', ['user' => $user]);
+    }
 }

@@ -31,6 +31,11 @@ Route::get('post/{id}/like', [
     'as' => 'blog.post.like'
 ]);
 
+Route::get('profile/{id}', [
+    'uses' => 'UserController@getUserProfile',
+    'as' => 'user.profile'
+]);
+
 /*
 |--------------------------------------------------------------------------
 | Admin Routes (Posts)
