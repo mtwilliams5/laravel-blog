@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+@include('partials.admin.subnav')
 <div class="container">
     @if(Session::has('info'))
         <div class="row">
