@@ -22,6 +22,7 @@
                     @if(!$post->published)
                         <small class="text-muted upper"> Draft</small>
                     @endif
+                    <small class="help-block">Written by: {{ $post->user->name }}</small>
                 </p>
             </div>
             <div class="col-md-6">
