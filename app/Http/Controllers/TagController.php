@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Like;
 use App\Tag;
 use App\Post;
 use Auth;

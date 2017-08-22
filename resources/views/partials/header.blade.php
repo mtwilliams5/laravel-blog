@@ -84,6 +84,9 @@
             <li role="presentation"{{ (Route::is('admin.tags.index')) ? ' class=active' : '' }} >
                 <a href="{{ (Route::is('admin.tags.index')) ? '#' : route('admin.tags.index') }}">Manage Tags</a>
             </li>
+            <li role="presentation"{{ (Route::is('admin.users.index')) ? ' class=active' : '' }} >
+                <a href="{{ (Route::is('admin.users.index')) ? '#' : route('admin.users.index') }}">Manage Users</a>
+            </li>
         </ul>
     </div>
 @endif

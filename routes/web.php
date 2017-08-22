@@ -114,6 +114,44 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
             'as' => 'admin.tags.delete'
         ]);
     });
+
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Routes (Users)
+    |--------------------------------------------------------------------------
+    */
+    Route::group(['prefix' => 'users'], function () {
+        Route::get('', [
+            'uses' => 'UserController@getUsersAdmin',
+            'as' => 'admin.users.index'
+        ]);
+
+        Route::get('create', [
+            'uses' => 'UserController@getUserCreate',
+            'as' => 'admin.user.create'
+        ]);
+
+        Route::post('create', [
+            'uses' => 'UserController@postUserCreate',
+            'as' => 'admin.user.create'
+        ]);
+        
+        Route::get('edit/{id}', [
+            'uses' => 'TagController@getUserEdit',
+            'as' => 'admin.user.edit'
+        ]);
+
+        Route::post('edit', [
+            'uses' => 'TagController@postUserUpdate',
+            'as' => 'admin.user.update'
+        ]);
+
+        Route::get('delete/{id}', [
+            'uses' => 'TagController@getUserDelete',
+            'as' => 'admin.user.delete'
+        ]);
+    });
+
 });
 
 /*
