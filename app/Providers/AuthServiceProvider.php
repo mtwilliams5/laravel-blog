@@ -32,5 +32,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('publish-post', function($user) {
             return $user->id == 1;
         });
+
+        Gate::define('manipulate-tags', function($user) {
+            return $user->id == 1;
+        });
     }
 }

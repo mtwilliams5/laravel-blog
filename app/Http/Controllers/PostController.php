@@ -86,7 +86,7 @@ class PostController extends Controller
     public function postAdminPublish($id)
     {
         $post = Post::find($id);
-        if (Gate::denies('manipulate-post', $post)) {
+        if (Gate::denies('publish-post')) {
             return redirect()->back();
         }
         $post->published = true;
@@ -97,7 +97,7 @@ class PostController extends Controller
     public function postAdminUnpublish($id)
     {
         $post = Post::find($id);
-        if (Gate::denies('manipulate-post', $post)) {
+        if (Gate::denies('publish-post')) {
             return redirect()->back();
         }
         $post->published = false;
@@ -108,7 +108,7 @@ class PostController extends Controller
     public function getAdminDelete($id)
     {
         $post = Post::find($id);
-        if (Gate::denies('publish-post', $post)) {
+        if (Gate::denies('manipulate-post', $post)) {
             return redirect()->back();
         }
         $post->likes()->delete();

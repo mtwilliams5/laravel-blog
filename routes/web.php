@@ -11,6 +11,11 @@
 |
 */
 
+/*
+|--------------------------------------------------------------------------
+| Public Routes
+|--------------------------------------------------------------------------
+*/
 Route::get('/', [
     'uses' => 'PostController@getIndex',
     'as' => 'blog.index'
@@ -25,6 +30,12 @@ Route::get('post/{id}/like', [
     'uses' => 'PostController@getLikePost',
     'as' => 'blog.post.like'
 ]);
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes (Posts)
+|--------------------------------------------------------------------------
+*/
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('', [
@@ -66,6 +77,48 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         'uses' => 'PostController@postAdminUpdate',
         'as' => 'admin.update'
     ]);
+
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Routes (Tags)
+    |--------------------------------------------------------------------------
+    */
+    Route::group(['prefix' => 'tags'], function () {
+        Route::get('', [
+            'uses' => 'TagController@getAdminIndex',
+            'as' => 'admin.tags.index'
+        ]);
+        
+        Route::get('create', [
+            'uses' => 'TagController@getAdminCreate',
+            'as' => 'admin.tags.create'
+        ]);
+
+        Route::post('create', [
+            'uses' => 'TagController@postAdminCreate',
+            'as' => 'admin.tags.create'
+        ]);
+        
+        Route::get('edit/{id}', [
+            'uses' => 'TagController@getAdminEdit',
+            'as' => 'admin.tags.edit'
+        ]);
+
+        Route::post('edit', [
+            'uses' => 'TagController@postAdminUpdate',
+            'as' => 'admin.tags.update'
+        ]);
+
+        Route::get('delete/{id}', [
+            'uses' => 'TagController@getAdminDelete',
+            'as' => 'admin.tags.delete'
+        ]);
+    });
 });
 
+/*
+|--------------------------------------------------------------------------
+| Auth Routes
+|--------------------------------------------------------------------------
+*/
 Auth::routes();
