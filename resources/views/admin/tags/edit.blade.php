@@ -8,7 +8,7 @@
             <form action="{{ route('admin.tags.update') }}" method="post">
                 <div class="form-group">
                     <label for="name">Tag Name: </label>
-                    <input type="text" id="name" name="name" value="{{ $tag->name }}">
+                    <input type="text" id="name" name="name" class="form-control" value="{{ $tag->name }}">
                 </div>
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $tagId }}">
