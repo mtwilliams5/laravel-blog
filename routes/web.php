@@ -142,17 +142,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         ]);
         
         Route::get('edit/{id}', [
-            'uses' => 'TagController@getUserEdit',
+            'uses' => 'UserController@getUserEdit',
             'as' => 'admin.user.edit'
         ]);
 
         Route::post('edit', [
-            'uses' => 'TagController@postUserUpdate',
+            'uses' => 'UserController@postUserUpdate',
             'as' => 'admin.user.update'
         ]);
 
         Route::get('delete/{id}', [
-            'uses' => 'TagController@getUserDelete',
+            'uses' => 'USerController@getUserDelete',
             'as' => 'admin.user.delete'
         ]);
     });
